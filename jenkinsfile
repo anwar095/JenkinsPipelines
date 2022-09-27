@@ -1,0 +1,29 @@
+@Library('JenkinsSharedLib@main')_
+
+pipeline{
+stages{
+stage('checkout repos'){
+  steps{
+    script{
+       checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: 'main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'services']], userRemoteConfigs: [[credentialsId: 'anwar095', url: 'https://github.com/anwar095/SpringPeclinic.git']]]
+    }
+  }
+
+}
+stage(maven build)
+{
+steps{
+   script{
+   buildAction.mavenBuild( folder: 'services', mavencommand: 'default')
+   }
+}
+}
+stage(docker image){
+steps{
+script{
+  buildAction.buildPushImage( imagebuildscript: 'default')
+}
+}
+}
+}
+}
