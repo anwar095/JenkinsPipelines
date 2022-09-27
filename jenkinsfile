@@ -15,7 +15,8 @@ stage('maven build')
 {
 steps{
    script{
-   buildAction.mavenBuild( folder: 'services', mavencommand: 'default')
+   echo "skipping build"
+  // buildAction.mavenBuild( folder: 'services', mavencommand: 'default')
    }
 }
 }
