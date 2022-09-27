@@ -1,6 +1,7 @@
 @Library('JenkinsSharedLib@main')_
 
 pipeline{
+agent any
 stages{
 stage('checkout repos'){
   steps{
