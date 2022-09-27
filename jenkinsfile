@@ -10,7 +10,7 @@ stage('checkout repos'){
   }
 
 }
-stage(maven build)
+stage('maven build')
 {
 steps{
    script{
@@ -18,7 +18,7 @@ steps{
    }
 }
 }
-stage(docker image){
+stage('docker image'){
 steps{
 script{
   buildAction.buildPushImage( imagebuildscript: 'default')
