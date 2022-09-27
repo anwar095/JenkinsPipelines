@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM maven:3.3-jdk-8
 
 RUN mkdir -p /opt/services/kh/jars
 
