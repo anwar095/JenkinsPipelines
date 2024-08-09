@@ -1,0 +1,19 @@
+parameters:
+  - name: runCI
+    type: boolean
+    default: false
+    displayName: Run CI Build
+
+stages:
+    - stage: Build
+      jobs:
+      - job: Build
+        displayName: Build_MVN
+        variables:
+            - template: var/variables_default.yaml@repo1            
+        steps:
+          - script: |
+              echo "Run CI Build: ${{ parameters.runCI }}"
+              echo "Skip Publish Artifacts: ${{ parameters.skipPublishArtifacts }}"
+            displayName: 'Print Parameters'
+
