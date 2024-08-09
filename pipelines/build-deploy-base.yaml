@@ -3,6 +3,10 @@ parameters:
     type: boolean
     default: false
     displayName: Run CI Build
+  - name: skipPublishArtifacts
+    type: boolean
+    default: false
+    displayName: skipPublishArtifacts   
 
 stages:
     - stage: Build
@@ -14,6 +18,6 @@ stages:
         steps:
           - script: |
               echo "Run CI Build: ${{ parameters.runCI }}"
-              echo "Skip Publish Artifacts: ${{ parameters.skipPublishArtifacts }}"
+              echo "Skip Publish Artifacts: ${{ variables['skipPublishArtifacts'] }}"
             displayName: 'Print Parameters'
 
