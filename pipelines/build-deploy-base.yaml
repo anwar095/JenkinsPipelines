@@ -18,6 +18,6 @@ stages:
         steps:
           - script: |
               echo "Run CI Build: ${{ parameters.runCI }}"
-              echo "Skip Publish Artifacts: ${{ variables['skipPublishArtifacts'] }}"
+              echo "Skip Publish Artifacts: ${{ parameters.skipPublishArtifacts }}"
             displayName: 'Print Parameters'
 
